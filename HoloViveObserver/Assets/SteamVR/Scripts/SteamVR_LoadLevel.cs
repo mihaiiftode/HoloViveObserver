@@ -350,11 +350,11 @@ public class SteamVR_LoadLevel : MonoBehaviour
 				Debug.Log("LaunchInternalProcessError: " + error);
 #if UNITY_EDITOR
 				UnityEditor.EditorApplication.isPlaying = false;
-#elif !UNITY_WSA_10_0
+#else
 				System.Diagnostics.Process.GetCurrentProcess().Kill();
 #endif
-            }
-        }
+			}
+		}
 		else
 		{
 			var mode = loadAdditive ? UnityEngine.SceneManagement.LoadSceneMode.Additive : UnityEngine.SceneManagement.LoadSceneMode.Single;
